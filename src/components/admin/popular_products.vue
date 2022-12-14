@@ -43,6 +43,7 @@ export default {
 #popular_products {
   width: -webkit-fill-available;
   height: auto;
+  max-width:750px;
   border: 1px solid rgb(216, 216, 216);
   padding: 1em;
   border-radius: 0.5em;
@@ -58,8 +59,10 @@ export default {
 
 #popular_products li {
   width: 150px;
-  height: 150px;
+  height: 170px;
   padding: 0;
+  overflow: hidden;
+  margin:0.25em;
   border: 1px solid rgb(216, 216, 216);
   border-radius: 0.5em;
 }

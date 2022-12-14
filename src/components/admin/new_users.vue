@@ -2,7 +2,7 @@
   <div id="new_users">
     <div id="titre_users">LAST USERS</div>
     <ul>
-      <li v-for="u in users" :key="u.id" @click="displayUser(u.id, u.name, u.tel, u.mail, u.img)">
+      <li v-for="u in userDisplay" :key="u.id" @click="displayUser(u.id, u.name, u.tel, u.mail, u.img)">
         <strong>{{ u.name }}</strong>
         <figcaption>
           <img :src="`${publicPath}` + u.img" alt="" />
@@ -17,16 +17,7 @@
             <img :src="(`${publicPath}` + userDisplay[4])" alt="" />
           </figcaption>
           <div class="thepics">
-            <!--
-            <figcaption class="small_pics">
-              <img :src="`${publicPath}` + myProducts[4]" alt="" />
-            </figcaption>
-            <figcaption class="small_pics">
-              <img :src="`${publicPath}` + myProducts[4]" alt="" />
-            </figcaption>
-            <figcaption class="small_pics">
-              <img :src="`${publicPath}` + myProducts[4]" alt="" />
-            </figcaption>-->
+        
           </div>
         </div>
         <div class="description">
@@ -42,57 +33,13 @@
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
+import users from '../../json/users.json';
 export default {
   data() {
     return {
       modalActivator: false,
       publicPath: process.env.BASE_URL,
-      users: [
-        {
-          id: 0,
-          name: "Lionel Rouchie",
-          img: "./img/users/dami-adebayo-k6aQzmIbR1s-unsplash.jpg",
-          tel: 1563513651,
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-        {
-          id: 1,
-          name: "Pamela enderson",
-          img: "./img/users/ahmed-carter-tiWcNvpQF4E-unsplash.jpg",
-          tel: 1563513651,
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-        {
-          id: 2,
-          name: "Samira mouloud",
-          img: "./img/users/dom-hill-nimElTcTNyY-unsplash.jpg",
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-        {
-          id: 3,
-          name: "Vanessa firedgens",
-          img: "./img/users/mark-adriane-V7IJzp_ElQc-unsplash.jpg",
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-        {
-          id: 4,
-          name: "Letty piaf",
-          img: "./img/users/alexandru-zdrobau-juESZxMhtXk-unsplash.jpg",
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-        {
-          id: 5,
-          name: "Simon naomé",
-          img: "./img/users/austin-wade-d2s8NQ6WD24-unsplash.jpg",
-          mail: "pamelaestpasla@pas.la",
-          adress: "9 rue inconnue",
-        },
-      ],
+      userDisplay: users
     };
   },
   computed: {

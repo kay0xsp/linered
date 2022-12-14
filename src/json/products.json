@@ -1,0 +1,112 @@
+[
+    {
+      "id": 0,
+      "name": "POLAROID",
+      "price": 250,
+      "ref": 1153953,
+      "img": "./img/products/grant-ritchie-n_wXNttWVGs-unsplash.jpg",
+      "quantity": 1,
+      "ratings": 5
+    },
+    {
+      "id": 1,
+      "name": "SNICKERS",
+      "price": 150,
+      "ref": 5225222,
+      "img": "./img/products/camila-damasio-mWYhrOiAgmA-unsplash.jpg",
+      "quantity": 1,
+      "ratings": 4
+    },
+    {
+      "id": 2,
+      "name": "SCHMIK TRUK",
+      "price": 550,
+      "ref": 217837,
+      "img": "./img/products/pepi-stojanovski-tulxmkTXmRw-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 2
+    },
+    {
+      "id": 3,
+      "name": "POLAROID",
+      "price": 250,
+      "ref": 2253153,
+      "img": "./img/products/charlesdeluvio-3IMl0kCxpHQ-unsplash.jpg",
+      "quantity": 1,
+      "ratings": 3
+    },
+    {
+      "id": 4,
+      "name": "SNICKERS",
+      "price": 150,
+      "ref": 9925222,
+      "img": "./img/products/polaroid-originals-one-step-2-white.jpg",
+      "quantity": 1,
+      "ratings": 5
+    },
+    {
+      "id": 5,
+      "name": "SCHMIK TRUK",
+      "price": 550,
+      "ref": 2177737,
+      "img": "./img/products/ruslan-bardash-4kTbAMRAHtQ-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    },
+    {
+      "id": 6,
+      "name": "SCHMIK TRUK",
+      "price": 550,
+      "ref": 217888,
+      "img": "./img/products/daniel-korpai-hbTKIbuMmBI-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    },
+    {
+      "id": 7,
+      "name": "VERRE VERRE",
+      "price": 550,
+      "ref": 217867864,
+      "img": "./img/products/mae-mu-GnWKTJlMYsQ-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    },
+    {
+      "id": 8,
+      "name": "MOTO ",
+      "price": 7500,
+      "ref": 9925222,
+      "img": "./img/products/zac-gudakov-DYRosAhGIYc-unsplash.jpg",
+      "quantity": 1,
+      "ratings": 5
+    },
+    {
+      "id": 9,
+      "name": "SCHMIK TRUK",
+      "price": 550,
+      "ref": 2177737,
+      "img": "./img/products/anita-austvika-ndsAu0UunHA-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    },
+    {
+      "id": 10,
+      "name": "SCHMIK TRUK",
+      "price": 550,
+      "ref": 217888,
+      "img": "./img/products/curology-SjqgfcH207A-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    },
+    {
+      "id": 11,
+      "name": "lipsticks",
+      "price": 50,
+      "ref": 217867864,
+      "img": "./img/products/caroline-attwood-E1rH__X9SA0-unsplash.jpg",
+      "quantity": 10,
+      "ratings": 3
+    }
+
+]
+  

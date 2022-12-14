@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-   
     <!-- The Modal -->
     <div id="myModal" v-if="modalActivator" class="modal">
       <!-- Modal content -->
@@ -52,38 +51,47 @@
     </div>
     <article v-if="!modalActivator">
       <div id="filters">
-        <div class="filter_box">
+        <div class="filter_search">
           <div class="filter_component">
             <strong>SEARCH</strong>
           </div>
-          <div class="filter_component">
-            <form action="">
-              <input type="text" />
-            </form>
+          <div class="filter_component">     
+              <input v-model="searchValue" placeholder="Search" />
             <span><i class="fas fa-search"></i></span>
           </div>
         </div>
+        <div class="filter_categories">
+          <strong>CATEGORIES</strong>
+          <ul>
+            <li 
+                v-for="categories in categoryList" 
+                :key="categories.id"
+            >
+              <p>{{categories.name}}</p> <i :class="`${categories.icon}`"></i>
+            </li>
+          </ul>
+        </div>
         <div class="filter_ad">
-          <img :src="`${publicPath}` + './img/products/caroline-attwood-E1rH__X9SA0-unsplash.jpg'" alt="" />
+          <img :src="`${publicPath}` + './img/publicity/boxed-water-is-better-PHQVYFgTerA-unsplash.jpg'" alt="" />
         </div>
       </div>
       <ul id="home_products">
         <li
-          v-for="p in products"
-          :key="p.id"
-          @click="addProduct(p.id, p.name, p.price, p.ref, p.img)"
+          v-for="products in productsDisplay"
+          :key="products.id"
+          @click="addProduct(products.id, products.name, products.price, products.ref, products.img)"
           class="list_product"
         >
           <figcaption>
-            <img :src="`${publicPath}` + p.img" alt="" />
+            <img :src="`${publicPath}` + products.img" alt="" />
           </figcaption>
           <div class="description_product">
-            <strong>{{ p.name }}</strong>
+            <strong>{{ products.name }}</strong>
 
             <div class="product_info">
-              <p>{{ p.price }} €</p>
+              <p>{{ products.price }} €</p>
               <div class="ratings">
-                <span class="" v-for="r in p.ratings" :key="r"
+                <span class="" v-for="r in products.ratings" :key="r"
                   ><i class="fas fa-star"></i>
                 </span>
               </div>
@@ -97,89 +105,19 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import product from '../json/products.json';
+import categories from '../json/categories.json';
 export default {
   name: "Home",
 
   data() {
     return {
       publicPath: process.env.BASE_URL,
-
+      productList: product,
+      categoryList: categories,
+      searchValue:'',
       dialog: false,
       modalActivator: false,
-      products: [
-        {
-          id: 0,
-          name: "POLAROID",
-          price: 250,
-          ref: 1153953,
-          img: "./img/products/grant-ritchie-n_wXNttWVGs-unsplash.jpg",
-          quantity: 1,
-          ratings: 5,
-        },
-        {
-          id: 1,
-          name: "SNICKERS",
-          price: 150,
-          ref: 5225222,
-          img: "./img/products/camila-damasio-mWYhrOiAgmA-unsplash.jpg",
-          quantity: 1,
-          ratings: 4,
-        },
-        {
-          id: 2,
-          name: "SCHMIK TRUK",
-          price: 550,
-          ref: 217837,
-          img: "./img/products/caroline-attwood-E1rH__X9SA0-unsplash.jpg",
-          quantity: 10,
-          ratings: 2,
-        },
-        {
-          id: 3,
-          name: "POLAROID",
-          price: 250,
-          ref: 2253153,
-          img: "./img/products/imani-bahati-LxVxPA1LOVM-unsplash.jpg",
-          quantity: 1,
-          ratings: 3,
-        },
-        {
-          id: 4,
-          name: "SNICKERS",
-          price: 150,
-          ref: 9925222,
-          img: "./img/products/polaroid-originals-one-step-2-white.jpg",
-          quantity: 1,
-          ratings: 5,
-        },
-        {
-          id: 5,
-          name: "SCHMIK TRUK",
-          price: 550,
-          ref: 2177737,
-          img: "./img/products/ruslan-bardash-4kTbAMRAHtQ-unsplash.jpg",
-          quantity: 10,
-          ratings: 3,
-        },
-        {
-          id: 6,
-          name: "SCHMIK TRUK",
-          price: 550,
-          ref: 217888,
-          img: "./img/products/daniel-korpai-hbTKIbuMmBI-unsplash.jpg",
-          quantity: 10,
-          ratings: 3,
-        },
-        {
-          id: 7,
-          name: "VERRE DE PUTAIN",
-          price: 550,
-          ref: 217867864,
-          img: "./img/products/mae-mu-GnWKTJlMYsQ-unsplash.jpg",
-          quantity: 10,
-          ratings: 3,
-        },
-      ],
     };
   },
 
@@ -190,6 +128,13 @@ export default {
       productsInChart: (state) => state.productsInChart,
       isConnected: (state) => state.isConnected,
     }),
+
+    productsDisplay(){
+      if(this.searchValue.trim().length > 0){
+        return this.productList.filter((productList) => productList.name.toLowerCase().includes(this.searchValue.trim().toLowerCase()))
+      }
+      return this.productList;
+    }
   },
   methods: {
     addProduct(id, name, price, ref, image) {
@@ -219,7 +164,6 @@ export default {
         itemQuantity: 1,
       };
       this.productsInChart.push(item);
-      console.log(this.productsInChart);
     },
     connexionTemp() {
       this.$store.commit("connectToLinered", true);
@@ -324,27 +268,65 @@ export default {
 #filters {
   padding: 1em;
   border-radius: 0.25em;
-  width: 550px;
+  width: 300px;
   height: 250px;
   margin: 5px 30px 20px 0px;
+  position:fixed;
 }
 
-.filter_box, .filter_ad {
+.filter_search, .filter_ad, .filter_categories {
   width: 300px;
   max-height: 400px;
   box-shadow: rgba(0, 0, 0, 0.24) 1px 2px 5px;
   border-radius: 0.25em;
-  position: fixed;
+  margin-bottom:15px;
   background-color: white;
- overflow: hidden;
+  overflow: hidden;
 }
 
-.filter_box{
+.filter_search, .filter_categories{
   padding: 1em;
+  color: rgb(102, 102, 102);
+}
+
+.filter_categories ul {
+  padding:0;
+  justify-content: left;
+  display:flex;
+  border:1px solid transparent;
+  flex-direction: column;
+  border-radius:0.25em;
+  margin-top:1em;
+}
+
+.filter_categories ul li{
+  display: flex;
+  justify-content: space-between;
+  padding:0;
+  width:100%;
+  margin-bottom:0.15em;
+  padding:0.5em;
+  border:1px solid transparent;
+  transition:0.5s;
+  border-radius:0.25em;
+  cursor: pointer;
+}
+
+.filter_categories ul li:hover{
+  border:1px solid red;
+}
+
+.filter_categories ul li p{
+  margin:0;
+}
+
+.filter_categories strong{
+  font-size:0.8em;
+
 }
 
 .filter_ad {
-  top:220px;
+  top:320px;
 }
 
 .filter_ad img{
@@ -375,38 +357,39 @@ export default {
   display: flex;
 }
 
-.home article ul {
+.home article #home_products {
   display: flex;
   flex-wrap: wrap;
+  margin-left:350px;
   padding: 0 !important;
   justify-content: space-between;
   width: 1600px;
 }
 
-.home article ul li {
-  width: 270px;
+.home article #home_products li {
+  width: 215px;
   height: 350px;
   border: 1px solid transparent;
   background-color: #f1f1f1;
   margin: 20px 5px;
   padding: 0;
   transition: 0.25s;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow: hidden;
 }
 
-.home article ul li:hover {
+.home article #home_products li:hover {
   border-color: red;
 }
 
-.home article ul li figcaption {
+.home article #home_products li figcaption {
   width: 100%;
   height: 250px;
   background-color: burlywood;
 }
 
-.home article ul li figcaption img {
+.home article #home_products li figcaption img {
   width: 100%;
   height: 100%;
   object-fit: cover;

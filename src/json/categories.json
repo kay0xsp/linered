@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name" : "Véhicules",
+        "icon" : "fas fa-car"
+    },
+    {
+        "id": 2,
+        "name" : "Mode",
+        "icon" : "fas fa-tshirt"
+    },
+    {
+        "id": 3,
+        "name" : "Multimédia",
+        "icon" : "fa fa-desktop"
+    },
+    {
+        "id": 4,
+        "name" : "Maison",
+        "icon" : "fa fa-home"
+    }
+]
