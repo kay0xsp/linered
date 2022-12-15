@@ -2,10 +2,10 @@
   <div id="new_users">
     <div id="titre_users">LAST USERS</div>
     <ul>
-      <li v-for="u in userDisplay" :key="u.id" @click="displayUser(u.id, u.name, u.tel, u.mail, u.img)">
-        <strong>{{ u.name }}</strong>
+      <li v-for="user in userDisplay" :key="user.id" @click="displayUser(user.id, user.name, user.tel, user.mail, user.img)">
+        <strong>{{ user.name }}</strong>
         <figcaption>
-          <img :src="`${publicPath}` + u.img" alt="" />
+          <img :src="`${publicPath}` + user.img" alt="" />
         </figcaption>
       </li>
     </ul>

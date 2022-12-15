@@ -1,11 +1,12 @@
 [
     {
       "id": 0,
-      "name": "POLAROID",
+      "name": "SUB WOOFING",
       "price": 250,
       "ref": 1153953,
       "img": "./img/products/grant-ritchie-n_wXNttWVGs-unsplash.jpg",
       "quantity": 1,
+      "category": "multimedia",
       "ratings": 5
     },
     {
@@ -15,51 +16,57 @@
       "ref": 5225222,
       "img": "./img/products/camila-damasio-mWYhrOiAgmA-unsplash.jpg",
       "quantity": 1,
+      "category": "clothes",
       "ratings": 4
     },
     {
       "id": 2,
-      "name": "SCHMIK TRUK",
+      "name": "Pear Samsang x1534846146",
       "price": 550,
       "ref": 217837,
       "img": "./img/products/pepi-stojanovski-tulxmkTXmRw-unsplash.jpg",
       "quantity": 10,
+      "category": "multimedia",
       "ratings": 2
     },
     {
       "id": 3,
-      "name": "POLAROID",
+      "name": "Hyves saint jean",
       "price": 250,
       "ref": 2253153,
       "img": "./img/products/charlesdeluvio-3IMl0kCxpHQ-unsplash.jpg",
       "quantity": 1,
+      "category": "house",
       "ratings": 3
     },
     {
       "id": 4,
-      "name": "SNICKERS",
+      "name": "PALOROID",
       "price": 150,
       "ref": 9925222,
       "img": "./img/products/polaroid-originals-one-step-2-white.jpg",
       "quantity": 1,
+      "category": "clothes",
       "ratings": 5
     },
     {
       "id": 5,
-      "name": "SCHMIK TRUK",
+      "name": "Tabouret sigma square",
       "price": 550,
       "ref": 2177737,
       "img": "./img/products/ruslan-bardash-4kTbAMRAHtQ-unsplash.jpg",
       "quantity": 10,
+      "category": "house",
       "ratings": 3
     },
     {
       "id": 6,
-      "name": "SCHMIK TRUK",
+      "name": "Rallex",
       "price": 550,
       "ref": 217888,
       "img": "./img/products/daniel-korpai-hbTKIbuMmBI-unsplash.jpg",
       "quantity": 10,
+      "category": "clothes",
       "ratings": 3
     },
     {
@@ -69,6 +76,7 @@
       "ref": 217867864,
       "img": "./img/products/mae-mu-GnWKTJlMYsQ-unsplash.jpg",
       "quantity": 10,
+      "category": "house",
       "ratings": 3
     },
     {
@@ -78,24 +86,27 @@
       "ref": 9925222,
       "img": "./img/products/zac-gudakov-DYRosAhGIYc-unsplash.jpg",
       "quantity": 1,
+      "category": "vehicule",
       "ratings": 5
     },
     {
       "id": 9,
-      "name": "SCHMIK TRUK",
+      "name": "set de table",
       "price": 550,
       "ref": 2177737,
       "img": "./img/products/anita-austvika-ndsAu0UunHA-unsplash.jpg",
       "quantity": 10,
+      "category": "house",
       "ratings": 3
     },
     {
       "id": 10,
-      "name": "SCHMIK TRUK",
+      "name": "Feel good shampoo",
       "price": 550,
       "ref": 217888,
       "img": "./img/products/curology-SjqgfcH207A-unsplash.jpg",
       "quantity": 10,
+      "category": "house",
       "ratings": 3
     },
     {
@@ -105,6 +116,7 @@
       "ref": 217867864,
       "img": "./img/products/caroline-attwood-E1rH__X9SA0-unsplash.jpg",
       "quantity": 10,
+      "category": "house",
       "ratings": 3
     }
 

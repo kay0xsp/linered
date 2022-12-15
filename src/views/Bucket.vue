@@ -28,7 +28,7 @@
             <p>Price: {{ item.productPrice }}</p>
             <p>
               <b>Total item Price:</b>
-              {{ item.productPrice * item.itemQuantity }} $
+              {{ item.productPrice }} $
             </p>
             <p><b>Quantity:</b>{{ item.itemQuantity }}</p>
             <p>{{ item.total }}</p>
@@ -48,43 +48,12 @@
       </ul>
       <div id="summary">
         <h3>Summary</h3>
-
         <div>
-          <p>
-            <b>Subtotal:</b> <em>{{ total }} $</em>
-          </p>
           <p id="total">
             <b>TOTAL ESTIMATED:</b>
-            <em>{{ total }} $</em>
+            <em>{{ totalPrice }} $</em>
           </p>
         </div>
-
-        <form id="payment_methods">
-          <span>
-            <input type="radio" name="season" value="winter" checked />
-            <figcaption>
-              <img src="icons/cc/SVG/visa-fill.svg" alt="" />
-            </figcaption>
-          </span>
-          <span>
-            <input type="radio" name="season" value="spring" />
-            <figcaption>
-              <img src="icons/cc/SVG/card-default-fill.svg" alt="" />
-            </figcaption>
-          </span>
-          <span>
-            <input type="radio" name="season" value="summer" />
-            <figcaption>
-              <img src="icons/cc/SVG/cash-fill.svg" alt="" />
-            </figcaption>
-          </span>
-          <span>
-            <input type="radio" name="season" value="autumn" />
-            <figcaption>
-              <img src="icons/cc/SVG/paypal-fill.svg" alt="" />
-            </figcaption>
-          </span>
-        </form>
         <span id="checkout" @click="totalCheckout()">CHECKOUT</span>
       </div>
     </div>
@@ -108,16 +77,12 @@ export default {
       myProducts: (state) => state.myProducts,
       productsInChart: (state) => state.productsInChart,
     }),
+
+    totalPrice(){
+      return this.productsInChart.reduce((acc, item) => acc + item.productPrice, 0);
+    }
   },
   methods: {
-    totalCheckout() {
-      this.total = 0;
-      var p = this.productsInChart;
-
-      p.forEach((element) => {
-        this.total += element.price * element.itemQuantity;
-      });
-    },
     removeItemQuantity(id) {
       const item = this.productsInChart;
 
@@ -125,13 +90,13 @@ export default {
         this.removeProduct(id);
       } else {
         item[id].itemQuantity -= 1;
+        item[id].productPrice -= item[id].priceOrigin;
       }
     },
     addItemQuantity(id) {
       const item = this.productsInChart;
       item[id].itemQuantity += 1;
-      this.totalCheckout();
-      console.log(this.backgroundimage);
+      item[id].productPrice += item[id].productPrice;
     },
     removeProduct(id) {
       let index = id;
@@ -153,7 +118,7 @@ export default {
   border-radius: 0.25em;
   text-transform: capitalize;
   font-size: 3em;
-
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 5px;
   color: white;
 
   height: 500px;
@@ -312,6 +277,7 @@ export default {
   justify-content: space-evenly;
   padding: 1em;
   border-radius: 0.25em;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 5px;
 }
 

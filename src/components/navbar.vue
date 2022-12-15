@@ -9,6 +9,11 @@
           <nav>
             <ul>
               <li>
+                <router-link to="/addProduct">
+                  <span class=""><i class="fas fa-add"></i> </span>
+                </router-link>
+              </li>
+              <li>
                 <router-link to="/">
                   <span class=""><i class="fas fa-search"></i> </span>
                 </router-link>

@@ -37,7 +37,6 @@ export default {
 <style>
 #popular_products strong {
   text-transform: uppercase;
-  
 }
 
 #popular_products {

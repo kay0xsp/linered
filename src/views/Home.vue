@@ -66,6 +66,7 @@
             <li 
                 v-for="categories in categoryList" 
                 :key="categories.id"
+                @click="categorySetting"
             >
               <p>{{categories.name}}</p> <i :class="`${categories.icon}`"></i>
             </li>
@@ -79,7 +80,7 @@
         <li
           v-for="products in productsDisplay"
           :key="products.id"
-          @click="addProduct(products.id, products.name, products.price, products.ref, products.img)"
+          @click="displayProduct(products.id, products.name, products.price, products.ref, products.img)"
           class="list_product"
         >
           <figcaption>
@@ -116,6 +117,7 @@ export default {
       productList: product,
       categoryList: categories,
       searchValue:'',
+      categoryValue:'',
       dialog: false,
       modalActivator: false,
     };
@@ -137,7 +139,7 @@ export default {
     }
   },
   methods: {
-    addProduct(id, name, price, ref, image) {
+    displayProduct(id, name, price, ref, image) {
       this.myProducts.splice("");
       const index = id;
       const productName = name;
@@ -162,12 +164,10 @@ export default {
         reference: ref,
         picture: image,
         itemQuantity: 1,
+        priceOrigin : price
       };
       this.productsInChart.push(item);
-    },
-    connexionTemp() {
-      this.$store.commit("connectToLinered", true);
-    },
+    }
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navbar />
-    <spacer />
+      <div id="spacer"></div>
     <v-main>
       <router-view />
     </v-main>
@@ -21,12 +21,12 @@ export default {
 }
 .v-application--wrap{
   background-color:rgb(211, 211, 211) !important;
+  color: rgb(70, 70, 70) !important;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  
 }
-spacer {
+#spacer {
   width: 100%;
   height: 110px;
 }
